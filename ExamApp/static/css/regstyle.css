@@ -1,0 +1,43 @@
+.header{
+    margin:auto;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    width:700px;
+
+}
+
+.quote{
+    font-style: italic;
+    font-family: cursive;
+}
+
+.container{
+    margin:auto;
+    margin-top: 50px;
+    width:900px;
+    background-color: grey;
+
+}
+.register{
+    width: 380px;
+    background-color:rgb(224, 215, 224);
+    height:300px;
+    border: black 5px;
+    margin-left:50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display:inline-block;
+    vertical-align: middle;
+    text-align:center;
+
+}
+
+.login{
+    width: 380px;
+    background-color:rgb(224, 215, 224);
+    height: 300px;
+    margin-left:50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display:inline-block;
+    text-align: center;
+
+}

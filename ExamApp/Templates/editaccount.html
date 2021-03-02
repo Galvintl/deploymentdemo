@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Account</title>
+</head>
+<body>
+    <div style="background-color:rgb(138, 172, 216);padding:20px;">
+    <h1>Edit My Account</h1>
+    <button><a href="/logout"></a>Logout</button>
+    {% if messages %}
+
+    {% for message in messages %}    
+        <p><b style="color:red;">{{ message }}</b></p>    
+    {% endfor %}
+
+{% endif %}
+<form action="/updateaccount/{{idUser.id}}" method="POST">
+        {% csrf_token %}
+        <p<label for ="first_name"><span style="font-weight: bolder;">First Name</span></label>
+        <input type="text" id="first_name" name="first_name" value="{{idUser.first_name}}"></p>
+        <p<label for ="last_name"><span style="font-weight: bolder;">Last Name</span></label>
+        <input type= "text" id="last_name" name="last_name" value="{{idUser.last_name}}"></p>
+        <p<label for ="email"><span style="font-weight: bolder;">Email</span></label>
+        <input type="text" id="email" name="email" value="{{idUser.email}}"></p>
+        <p><input type="submit" value="Update"></p>
+        <a href="/quotes">Back</a>
+</div>
+</form>
+</body>
+</html>

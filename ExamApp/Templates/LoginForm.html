@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/regstyle.css' %}">
+</head>
+<body>
+    <div class= "header">
+        <h3 class="quote">Most people are other people. Their thoughts are someone else's opinions, their lives a mimicry, their passions a quotation. Oscar Wilde</h3>
+    </div>
+    {% if messages %}
+    
+        {% for message in messages %}    
+            <p><b style="color:red;">{{ message }}</b></p>    
+        {% endfor %}
+
+    {% endif %}
+    <div class="container">
+        <div class=register>
+            <h2>Registration</h2> 
+            <form action="/register" method="POST">
+                {% csrf_token %}
+                <p<label for ="first_name">First Name</label>
+                <input type="text" id="first_name" name="first_name" value=""></p>
+                <p<label for ="last_name">Last Name</label>
+                <input type= "text" id="last_name" name="last_name" value=""></p>
+                <p<label for ="email">Email</label>
+                <input type="text" id="email" name="email" value=""></p>
+                <p<label for ="password">Password</label>
+                <input type= "text" id="password" name="password" value=""></p>
+                <p<label for ="confirm_pw">Confirm PW</label>
+                <input type= "text" id="confirm_pw" name="confirm_pw" value=""></p>
+                <p><input type="submit" value="Register"></p>
+            </form>
+        </div>
+        <div class="login">
+            <h2>Login</h2>  
+            <form action="/login" method="POST">
+                {% csrf_token %}
+                <p<label for ="email">Email</label>
+                <input type="text" id="email" name="email" value=""></p>
+                <p<label for ="password">Password</label>
+                <input type= "text" id="password" name="password" value=""></p>
+                <p><input type="submit" value="Log In"></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

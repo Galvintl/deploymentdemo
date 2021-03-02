@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Quotes</title>
+
+</head>
+<body>
+    <div style="background-color:rgb(138, 172, 216);padding:20px;">
+    <h1>{{QuoteObj.post.first_name}} {{QuoteObj.post.last_name}} Quotes</h1>
+    <a href="/quotes"><span style="color:rgb(3, 27, 15); font-size: larger;">Back</span></a>
+    <button><a href="/logout"></a>Logout</button>
+    <br>
+    <br>
+    
+<p><span style="font-weight: bolder;"> {{QuoteObj.author}}: </span>{{QuoteObj.quote}} </p>
+
+</div>
+
+</body>
+</html>

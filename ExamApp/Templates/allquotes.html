@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/allquotes.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+
+        <h1>Welcome {{loggedinUser.first_name}}!</h1>
+        <a href= "/myaccount/{{loggedinUser.id}}">Edit My Account</a> <a href="/logout">Log Out</a>
+        </div>
+
+    <div class="allquotes">     
+        <h2>  Quotes</h2>
+
+        {% for QuoteObj in allQuotes %}  
+        <p> <span style="font-weight: bolder;"> {{QuoteObj.author}}:</span> {{QuoteObj.quote}}</p>
+        <p> Posted by: <a href= "/user/{{QuoteObj.id}}">{{QuoteObj.post.first_name}} {{QuoteObj.post.last_name}}</a> </p>
+        <p>{{QuoteObj.like.all.count}} People like this quote!</p>
+        
+        <button><a href="/like/{{QuoteObj.id}}">Like</a></button>
+
+        <br> 
+        {% if  QuoteObj.post.id  ==  loggedinUser.id %}
+
+            <button><a href="/delete/{{QuoteObj.id}}"></a>Delete</button> 
+        {% endif %}
+        <br>
+
+        {% endfor %}
+    </div>
+    <div class = "addquote">
+        <h1>Add a Quote!</h1>
+        {% if messages %}
+        
+        {% for message in messages %}    
+            <p><b style="color:red;">{{ message }}</b></p>    
+        {% endfor %}
+
+    {% endif %}
+
+
+
+    <form action="/createquote" method=POST>
+        {% csrf_token %}
+        <p<label for ="author">Author</label>
+        <input type="author" id="author" name="author" value=""></p>
+        <label for ="quote">Quote</label>
+        <textarea  name="quote" rows="10" cols="20"></textarea>
+        <br>
+        <p><input type="submit" value="Submit"></p>
+    </form>
+    </div>
+</div>
+</body>
+</html>
